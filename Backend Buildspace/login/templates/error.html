@@ -1,0 +1,32 @@
+{% extends "Layout.html" %}
+{% block body %}
+<div style="left: 30%; right: 45%; top: 20%; bottom: 65%;position: absolute;font-size: 18px;">
+    <div  style="background-color: #ccc;border-style: solid;border-width: 1px;">
+        <table>
+        <form name="f1" method="post" action="" >
+            <tr>
+                <td  style="white-space: nowrap;">Error :</td>
+                <td>Invalid {{ERRORNAME}}</td>
+            </tr>
+            <tr><td style ="text-align : center;"></td></tr>
+            <tr>
+                <td  style="white-space: nowrap;">Error  :</td>
+                <td>Invalid ####{{ERROR}}####</td>
+            </tr>
+        </form>     
+        <tr>
+            <td style="height: 41px">
+                <form method="get" action="/login"><input type="submit" name="Login Page" value="Login Page" style="font-size:18px; " /></form>
+                
+            </td>
+        
+            <td style="height: 41px">
+                <form method="get" action="/signup"><input type="submit" name="Signup Page" value="Signup Page" style="font-size:18px; " /></form>
+            </td>
+        </tr>
+        
+        </table>
+    </div>    
+</div>
+{% endblock %}
+        

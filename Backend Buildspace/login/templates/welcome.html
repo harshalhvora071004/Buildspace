@@ -1,0 +1,29 @@
+{% extends "Layout.html" %}
+{% block body %}
+<div style="left: 30%; right: 45%; top: 20%; bottom: 65%;position: absolute;font-size: 18px;">
+    <form name="f1" method="post" action=""  style="background-color: #ccc;border-style: solid;border-width: 1px;">
+        <table>
+            <tr>
+                <td  style="white-space: nowrap;">Welcome :</td>
+                <td>{{Username}}</td>
+            </tr>
+            <tr>
+                <td  style="white-space: nowrap;">Successfully  :</td>
+                <td>Logged in</td>
+            </tr>
+    </form>
+    <tr>
+        <td style="height: 41px">
+            <form method="get" action="/login"><input type="submit" name="Login Page" value="Login Page" style="font-size:18px; " /></form>
+            
+        </td>
+    
+        <td style="height: 41px">
+            <form method="get" action="/signup"><input type="submit" name="Signup Page" value="Signup Page" style="font-size:18px; " /></form>
+        </td>
+    </tr>
+        </table>
+     
+</div>
+{% endblock %}
+        

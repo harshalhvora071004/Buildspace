@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block body %}
+    <h1 style="text-align: center;">Harshal's To Do List</h1>
+    <h3 style="text-align: center;"><u>~ Harshal Vora</u></h3>
+    <div style="margin-left: 30%;margin-right: 30%;">
+    <div style="width: fit-content;">
+        <form action="/todopre" method="post">
+            <input type="text" name ='instance' autofocus placeholder="To Do">
+            <button  type="submit" >To do list</button>
+        </form>
+    </div>
+    </div>
+
+{% endblock %}

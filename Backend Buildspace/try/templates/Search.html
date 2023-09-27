@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+    {% block body %}
+    <h1 style="text-align: center;">Harshal's Word Search Bar</h1>
+    <h3 style="text-align: center;"><u>~ Harshal Vora</u></h3>
+    
+    
+    
+    <div style="margin-left: 30%;margin-right: 30%;">
+    <div style="width: fit-content;">
+        <form method="POST">
+            <textarea rows=6 columns=6 name="searchphrase"  placeholder='SEARCH'>{{placeholder}}</textarea>
+            <br>
+            <input type="submit" value="SEARCH">
+        </form>
+        {% if state is not none %}
+        <h2>Found:</h2>
+        <p>{{ searchphrase }}</p>
+        {% endif %}
+        {% if state is none %}
+        <h2>Found:</h2>
+        <p>Nothing</p>
+        {% endif %}   
+
+    </div>
+    </div>
+    {% endblock %}
