@@ -1,0 +1,25 @@
+{% extends "Layout.html" %}
+{% block body %}
+<div style="text-align: center; margin-top: 50px;">
+    <h1 style="color: #333;">{{username}} Score Page</h1>
+    <div style="margin-top: 20px;">
+        <span style="font-size: 20px; color: #555;">Username: </span>
+        <span style="font-size: 24px; color: #000; font-weight: bold;">{{username}}</span>
+    </div>
+    <div style="margin-top: 10px;">
+        <span style="font-size: 20px; color: #555;">Score: </span>
+        <span style="font-size: 24px; color: #27ae60; font-weight: bold;">{{score}}</span>
+    </div>
+    <div style="margin-top: 20px;">
+        {%set i = score%}
+        <span style="font-size: 20px; color: #555;">Stars: </span>
+        {%for item in range(i) %}
+        <span style="color: #f1c40f;">★</span>
+        {%endfor%}
+        {%for item in range(5-i) %}
+        <span style="color: #ecf0f1;">★</span>
+        {%endfor%}
+        <p>{{nnn}}</p>
+    </div>
+</div>
+{% endblock %}

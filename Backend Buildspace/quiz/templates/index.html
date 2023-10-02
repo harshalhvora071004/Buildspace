@@ -1,5 +1,31 @@
+
 {% extends "Layout.html" %}
 {% block body %}
-    <p>Hello {{name}} Bye</p>
-{% endblock %}
-        
+<div style="left: 10vw; right: 10vw; top: 10vh; bottom: 10vh; position: absolute; font-size: 2vw;">
+    <div style="background-color:deepskyblue; border-style: solid; border-width: 1px; padding: 2vw;">
+        <form action="/store" method="post">
+            <h1 style="text-align: center;background-color:lightskyblue;">Builspace Quiz</h1>
+            <label for="username" style="display: block; white-space: nowrap;background-color: lightskyblue;">Username:</label>
+            <input type="text" id="username" name="username" style="width: 100%;"><br><br>
+
+            {% for question_id, question_text in rndm.items() %}
+                <div style="background-color: aliceblue;">
+                    <label style="display: block; white-space: nowrap;background-color: lightskyblue;">
+                        Question {{ question_id }}: {{ question_text }}
+                    </label>
+                    
+                    {% for answer_id in range(1, 5) %}
+                        {% set answer_text = ans[question_id][answer_id - 1] %}
+                        <label style="display: block; white-space: nowrap;">
+                            <input type="radio" name="answer{{ question_id }}" value="{{ answer_id }}" style="display: inline;"> {{ answer_text }}
+                        </label>
+                    {% endfor %}
+                </div>
+                <br><br>
+            {% endfor %}
+            
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</div>
+{% endblock %} 
