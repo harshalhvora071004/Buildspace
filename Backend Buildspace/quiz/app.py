@@ -35,20 +35,23 @@ def index():
         return render_template("index.html", rndm=questions, ans=ANSWER,coounter=cou)
 answer_value = {}
 answer_current_value = {}
-@app.route("/store",methods=["POST"])
+@app.route("/store", methods=["POST"])
 def store():
     Score = 0
-    string_variable = "answer"
-    for _ in question_id_list:
-        answer_value[_]="{}{}".format(string_variable, _)
-        answer_current_value[_]=request.form.get(answer_value[_])   
     u_name = request.form.get("username")
-    question_id_list_str = ','.join(map(str, question_id_list))
-    for _ in question_id_list:
-        if CANSWER[_] == answer_current_value[_]:
+
+    for q_id in question_id_list:
+        # Get the selected answer from the form
+        selected_answer = int(request.form.get(f"answer{q_id}"))
+
+        # Compare the selected answer with the correct answer
+        if selected_answer == int(CANSWER[q_id]):
             Score += 1
+
+    question_id_list_str = ','.join(map(str, question_id_list))
     db.execute("INSERT INTO result (username, score, question_id_list) VALUES (?, ?, ?)", u_name, Score, question_id_list_str)
-    return render_template("result.html",username=u_name, score=Score,nnn= answer_current_value)
+
+    return render_template("result.html", username=u_name, score=Score)
 
 @app.route("/questions", methods=['GET', 'POST'])
 def questions():
