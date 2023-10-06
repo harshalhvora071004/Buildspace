@@ -29,9 +29,9 @@ def counter():
     return render_template('counter.html', word_count=None, text=None)
 
 @app.route("/Search", methods=['GET', 'POST'])
-def Search():
+def search():
     if request.method == 'POST':
-        phrase = request.form['searchphrase']
+        phrase = request.form.get('searchphrase')
         phrases = ['Flask','Python','Html']
         if phrase in phrases:
             phrase = phrase + ' Is a Programming Language useful for doing Backend Tasks in Builspace Link'
@@ -39,8 +39,7 @@ def Search():
         else:
             return render_template('Search.html', searchphrase=f'{phrase} is not a Keyword ',SEARCH = 1,placeholder = phrase)
     else:
-        return render_template("Search.html",searchphrase = None,SEARCH = None,placeholder = phrase)
-
+        return render_template("Search.html",searchphrase = None,SEARCH = None)
     
     
 Title = "Harshal's Food Blog"
